@@ -7,6 +7,7 @@ const cors = require("cors")
 
 authRoutes = require('./routes/auth')
 userRoutes = require('./routes/user')
+newRoutes = require('./routes/new')
 
 app.use(cors(
     {
@@ -46,10 +47,7 @@ app.use((req, res, next) => {
 // routes
 app.use('/auth', authRoutes)
 app.use('/users', userRoutes)
-
-app.get("/", (req, res) => {
-    res.json("Hello World")
-})
+app.use('/', newRoutes)
 
 app.use((req, res, next) => {
     const error = new Error('Not found')
