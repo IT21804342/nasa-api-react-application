@@ -20,7 +20,7 @@ export default function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:3000/users";
+            const url = "https://nasa-api-react-application.onrender.com/users";
             const { data: res } = await axios.post(url, data);
             navigate("/login");
             console.log(res.message);
