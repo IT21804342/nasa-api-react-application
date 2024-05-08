@@ -7,15 +7,15 @@ const cors = require("cors")
 
 authRoutes = require('./routes/auth')
 userRoutes = require('./routes/user')
-newRoutes = require('./routes/new')
 
 app.use(cors(
     {
-        origin: ["https://deploy-mern-1whq.vercel.app"],
+        origin: ["https://deploy-mern-frontend.vercel.app"],
         methods: ["POST", "GET"],
-        Credential: true
+        credentials: true
     }
-))
+));
+app.use(express.json())
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://it21804342:' + process.env.MONGO_ATLAS_PW + '@cluster0.hr4qoux.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
@@ -44,10 +44,13 @@ app.use((req, res, next) => {
     next()
 })
 
+app.get("/", (req, res) => {
+    res.json("Nasa Api")
+})
+
 // routes
 app.use('/auth', authRoutes)
 app.use('/users', userRoutes)
-app.use('/', newRoutes)
 
 app.use((req, res, next) => {
     const error = new Error('Not found')
