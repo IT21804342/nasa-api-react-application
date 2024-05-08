@@ -8,14 +8,14 @@ const cors = require("cors")
 authRoutes = require('./routes/auth')
 userRoutes = require('./routes/user')
 
-// app.use(cors(
-//     {
-//         origin: ["https://deploy-mern-frontend.vercel.app"],
-//         methods: ["POST", "GET"],
-//         credentials: true
-//     }
-// ));
-// app.use(express.json())
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-frontend.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
+app.use(express.json())
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://it21804342:' + process.env.MONGO_ATLAS_PW + '@cluster0.hr4qoux.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
