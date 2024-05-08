@@ -40,7 +40,8 @@ export default function Home(props) {
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
                         <div style={{ textAlign: 'center' }}>
                             <Card style={{ width: '18rem', height: '20rem' }}>
-                                <Card.Img variant="top" src={data?.hdurl} />
+                                {/* <Card.Img variant="top" src={data?.url} /> */}
+                                <iframe src={data?.url} style={{ width: '100%', height: '100%' }}></iframe>
                                 <Card.Body>
                                     <Card.Title>{data?.title}</Card.Title>
                                     <Link to="/apod">
