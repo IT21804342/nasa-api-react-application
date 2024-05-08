@@ -3,9 +3,18 @@ const app = express()
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const cors = require("cors")
 
 authRoutes = require('./routes/auth')
 userRoutes = require('./routes/user')
+
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-1whq.vercel.app"],
+        methods: ["POST", "GET"],
+        Credential: true
+    }
+))
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://it21804342:' + process.env.MONGO_ATLAS_PW + '@cluster0.hr4qoux.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
