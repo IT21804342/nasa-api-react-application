@@ -15,9 +15,11 @@ function App() {
             {user && <Route path="/" exact element={<Nasa />} />}
             <Route path="/signup" exact element={<Signup />} />
             <Route path="/login" exact element={<Login />} />
-            <Route path="/apod" exact element={<Apod />} />
-            <Route path="/rover" exact element={<Rover />} />
+            {user && <Route path="/apod" exact element={<Apod />} />}
+            {user && <Route path="/rover" exact element={<Rover />} />}
             <Route path="/" element={<Navigate replace to="/login" />} />
+            <Route path="/apod" element={<Navigate replace to="/login" />} />
+            <Route path="/rover" element={<Navigate replace to="/login" />} />
         </Routes>
     );
 }
